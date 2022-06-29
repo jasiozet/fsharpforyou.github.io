@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Types</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" id="theme_link" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/materia/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="/content/navbar-fixed-left.css" />
+    <link type="text/css" rel="stylesheet" href="/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/content/fsdocs-tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-secondary fixed-left" id="fsdocs-nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarsExampleDefault">
+            <a href="/"><img id="fsdocs-logo" src="/img/logo.png" /></a>
+            <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+            <div id="header">
+                <div class="searchbox" id="fsdocs-searchbox">
+                    <label for="search-by">
+                        <i class="fas fa-search"></i>
+                    </label>
+                    <input data-search-input="" id="search-by" type="search" placeholder="Search..." />
+                    <span data-search-clear="">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- END SEARCH BOX: this adds support for the search box -->
+            <ul class="navbar-nav">
+                <li class="nav-header">Links</li>
+                <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="https://github.com/fsharpforyou/fsharpforyou.github.io/blob/main/LICENSE">License</a></li>
+                <!--li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="{{fsdocs-release-notes-link}}">Release Notes</a></li-->
+                <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="https://github.com/fsharpforyou/fsharpforyou.github.io">Source Repository</a></li>
+                <li class="nav-header">
+  Introduction
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/introduction/installing.html">
+    Installing F#
+  </a>
+</li>             
+<li class="nav-header">
+  Basics
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/values.html">
+    Values and expressions
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/types.html">
+    Types
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/basic_operators.html">
+    Types
+  </a>
+</li>             
+<li class="nav-header">
+  Contributing
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/contributing.html">
+    Contributing
+  </a>
+</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="masthead">
+            <h3 class="muted"><a href="/">F# For You!</a></h3>
+        </div>
+        <hr />
+        <div class="container" id="fsdocs-content">
+            
+<h1><a name="Operators" class="anchor" href="#Operators">Operators</a></h1>
+<p>Operators are special functions that take one or more values and yield another value.</p>
+<h3><a name="Arithmetic-Operators" class="anchor" href="#Arithmetic-Operators">Arithmetic Operators:</a></h3>
+<p>Arithmetic operators are concerned with mathematical operations such as <code>add</code>, <code>subtract</code>, <code>multiply</code>, <code>divide</code>,
+and yield the result of such operations.<br />
+<code>+</code>: add two numbers<br />
+<code>-</code>: subtract two numbers<br />
+<code>*</code>: multiply two numbers<br />
+<code>/</code>: divide two numbers<br />
+<code>**</code>: power<br />
+<code>%</code>: modulo (remainder after the division of two numbers)</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">addition</span> <span class="o">=</span> <span class="n">5</span> <span class="o">+</span> <span class="n">2</span> <span class="c">// 5 plus 2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">subtraction</span> <span class="o">=</span> <span class="n">5</span> <span class="o">-</span> <span class="n">2</span> <span class="c">// 5 minus 2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="id">multiplication</span> <span class="o">=</span> <span class="n">5</span> <span class="o">*</span> <span class="n">2</span> <span class="c">// 5 times 2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="id">division</span> <span class="o">=</span> <span class="n">5</span> <span class="o">/</span> <span class="n">2</span> <span class="c">// 5 divided by 2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="id">modulo</span> <span class="o">=</span> <span class="n">5</span> <span class="o">%</span> <span class="n">2</span> <span class="c">// the remainder of 5 divided by 2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="id">exponent</span> <span class="o">=</span> <span class="n">5.0</span> <span class="o">**</span> <span class="n">2.0</span> <span class="c">// 5 to the power of 2</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>val addition: int = 7
+val subtraction: int = 3
+val multiplication: int = 10
+val division: int = 2
+val modulo: int = 1
+val exponent: float = 25.0</code></pre></td></tr></table>
+<h3><a name="Logical-operators" class="anchor" href="#Logical-operators">Logical operators:</a></h3>
+<p>Logical operators perform comparison operations on two values and yield boolean (true or false) values.
+Example: <code>is ... equal to ...</code> or <code>is ... greater then ...</code></p>
+<p><code>=</code>: equality<br />
+<code>&lt;&gt;</code>: inequality<br />
+<code>&lt;</code>: less than<br />
+<code>&gt;</code>: greater than<br />
+<code>&lt;=</code>: less than or equal to<br />
+<code>&gt;=</code>: greater than or equal to<br />
+<code>&amp;&amp;</code>: logical OR<br />
+<code>||</code>: logical AND<br />
+<code>not</code>: logical NOT, negates a boolean value.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="id">equals</span> <span class="o">=</span> <span class="n">5</span> <span class="o">=</span> <span class="n">5</span> <span class="c">// is 5 equal to 5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="id">notEquals</span> <span class="o">=</span> <span class="n">5</span> <span class="o">&lt;&gt;</span> <span class="n">5</span> <span class="c">// is 5 NOT equal to 5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="id">lessThan</span> <span class="o">=</span> <span class="n">5</span> <span class="o">&lt;</span> <span class="n">5</span> <span class="c">// is 5 less than 5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 10)" onmouseover="showTip(event, 'fs10', 10)" class="id">greaterThan</span> <span class="o">=</span> <span class="n">5</span> <span class="o">&gt;</span> <span class="n">5</span> <span class="c">// is 5 greater than 5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 11)" onmouseover="showTip(event, 'fs11', 11)" class="id">lessThanOrEqualTo</span> <span class="o">=</span> <span class="n">5</span> <span class="o">&lt;=</span> <span class="n">5</span> <span class="c">// is 5 less than or equal to 5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 12)" onmouseover="showTip(event, 'fs12', 12)" class="id">greaterThanOrEqualTo</span> <span class="o">=</span> <span class="n">5</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">5</span> <span class="c">// is 5 greater than or equal to 5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 13)" onmouseover="showTip(event, 'fs13', 13)" class="id">logicalAnd</span> <span class="o">=</span> <span class="n">5</span> <span class="o">=</span> <span class="n">5</span> <span class="o">&amp;&amp;</span> <span class="n">6</span> <span class="o">=</span> <span class="n">6</span> <span class="c">// is 5 equal to 5 AND 6 equal to 6</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 14)" onmouseover="showTip(event, 'fs14', 14)" class="id">logicalOr</span> <span class="o">=</span> <span class="n">5</span> <span class="o">=</span> <span class="n">5</span> <span class="o">||</span> <span class="n">6</span> <span class="o">=</span> <span class="n">7</span> <span class="c">// is 5 equal to 5 OR six equal to 7</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 15)" onmouseover="showTip(event, 'fs15', 15)" class="id">falseValue</span> <span class="o">=</span> <span class="fn">not</span> <span class="pn">(</span><span class="k">true</span><span class="pn">)</span> <span class="c">// true -&gt; false</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 16)" onmouseover="showTip(event, 'fs16', 16)" class="id">trueValue</span> <span class="o">=</span> <span class="fn">not</span> <span class="pn">(</span><span class="k">false</span><span class="pn">)</span> <span class="c">// false -&gt; true</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>val equals: bool = true
+val notEquals: bool = false
+val lessThan: bool = false
+val greaterThan: bool = false
+val lessThanOrEqualTo: bool = true
+val greaterThanOrEqualTo: bool = true
+val logicalAnd: bool = true
+val logicalOr: bool = true
+val falseValue: bool = false
+val trueValue: bool = true</code></pre></td></tr></table>
+
+            <div class="fsdocs-tip" id="fs1">val addition: int</div>
+<div class="fsdocs-tip" id="fs2">val subtraction: int</div>
+<div class="fsdocs-tip" id="fs3">val multiplication: int</div>
+<div class="fsdocs-tip" id="fs4">val division: int</div>
+<div class="fsdocs-tip" id="fs5">val modulo: int</div>
+<div class="fsdocs-tip" id="fs6">val exponent: float</div>
+<div class="fsdocs-tip" id="fs7">val equals: bool</div>
+<div class="fsdocs-tip" id="fs8">val notEquals: bool</div>
+<div class="fsdocs-tip" id="fs9">val lessThan: bool</div>
+<div class="fsdocs-tip" id="fs10">val greaterThan: bool</div>
+<div class="fsdocs-tip" id="fs11">val lessThanOrEqualTo: bool</div>
+<div class="fsdocs-tip" id="fs12">val greaterThanOrEqualTo: bool</div>
+<div class="fsdocs-tip" id="fs13">val logicalAnd: bool</div>
+<div class="fsdocs-tip" id="fs14">val logicalOr: bool</div>
+<div class="fsdocs-tip" id="fs15">val falseValue: bool</div>
+<div class="fsdocs-tip" id="fs16">val trueValue: bool</div>
+
+        </div>
+
+        <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+        <script type="text/javascript">var fsdocs_search_baseurl = '/';</script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+        <script type="text/javascript" src="/content/fsdocs-search.js"></script>
+        <!-- END SEARCH BOX: this adds support for the search box -->
+    </div>
+</body>
+
+</html>

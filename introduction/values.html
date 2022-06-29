@@ -91,68 +91,78 @@
         <div class="container" id="fsdocs-content">
             
 <h1><a name="Values-and-expressions" class="anchor" href="#Values-and-expressions">Values and expressions</a></h1>
-<p>In this chapter, we'll be going over expressions and values in F#.
-Let's take a quick look at this expression:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="n">5</span> <span class="o">+</span> <span class="n">5</span><span class="pn">;;</span>
+<p>In this chapter, we'll be going over expressions and values in F#.</p>
+<p>What exactly is an expression?
+An expression is a block of code that produces a value.</p>
+<p>Let's take a quick look at this expression:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="n">5</span> <span class="o">+</span> <span class="n">5</span>
 </code></pre>
-<table class="pre"><tr><td><pre><code>10</code></pre></td></tr></table>
-<p>Let's break that down:
-1. <code>5 + 5</code> is an expression.
-2. The expression evaluates to <code>10</code>
-3. The value has the type of <code>int</code>
-What does this mean?
-<em> F# is an expression-based language which means that <em>everything is a value</em>.
-This differs from languages like C# and Java which make a distinction between expressions (yielding values)
-and statements (commands or units of execution).
-</em> F# is a statically typed language which means that every value has a single type that is
-enforced at compile time.</p>
+<table class="pre"><tr><td><pre><code>val it: int = 10</code></pre></td></tr></table>
+<p>Let's break that down:</p>
+<ol>
+<li><code>5 + 5</code> is an expression.</li>
+<li>The expression evaluates to <code>10</code></li>
+<li>The value has the type of <code>int</code></li>
+</ol>
+<p>What does this mean?</p>
+<ul>
+<li>
+<p>F# is an expression-based language which means that everything is a value.
+This differs from languages that make a distinction between expressions (yielding values)
+and statements (commands).</p>
+</li>
+<li>
+<p>F# is a strongly, statically typed language which means that every value has a single type
+which can't be changed after initialization.</p>
+</li>
+</ul>
+<h2><a name="Let-bindings" class="anchor" href="#Let-bindings">Let bindings</a></h2>
 <p>We can assign values to names using let bindings:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">ten</span> <span class="o">=</span> <span class="n">5</span> <span class="o">+</span> <span class="n">5</span><span class="pn">;;</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">ten</span> <span class="o">=</span> <span class="n">5</span> <span class="o">+</span> <span class="n">5</span>
 </code></pre>
-<table class="pre"><tr><td><pre><code>&lt;null&gt;</code></pre></td></tr></table>
+<table class="pre"><tr><td><pre><code>val ten: int = 10</code></pre></td></tr></table>
 <p>From left to right, this reads as:
 <code>let</code> the name <code>ten</code> be assigned to the result of the expression <code>5 + 5</code>.</p>
 <p>As you may have noticed, the binding's type is inferred by the compiler.
 F# has strong type inference which means that values usually don’t require type annotations.
-Sometimes type annotations are needed if the compiler can't figure out the type for a specific value,
+Although, type annotations are needed if the compiler can't figure out the type for a value,
 or you want to override the compiler’s type inference.</p>
 <p>You can specify type annotations by using a colon followed by the value's type like so:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">five</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="vt">int</span> <span class="o">=</span> <span class="n">5</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">five</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="vt">float</span> <span class="o">=</span> <span class="n">5</span>
 </code></pre>
-<table class="pre"><tr><td><pre><code>&lt;null&gt;</code></pre></td></tr></table>
+<table class="pre"><tr><td><pre><code>val five: float = 5.0</code></pre></td></tr></table>
 <p>By default let bindings are immutable which means their values can’t be changed after initialization.
-F# does support mutable let bindings, but we have to explicitly declare that a binding is mutable.
-We can declare a let binding as mutable using the <code>mutable</code> keyword:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="mv">two</span> <span class="o">=</span> <span class="n">1</span> <span class="o">+</span> <span class="n">1</span><span class="pn">;;</span>
+F# does support mutable let bindings, but we have to explicitly declare that a binding is mutable using the <code>mutable</code> keyword and mutate it using the <code>&lt;-</code> operator.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="mv">result</span> <span class="o">=</span> <span class="n">1</span> <span class="o">+</span> <span class="n">1</span>
+<span onmouseout="hideTip(event, 'fs4', 5)" onmouseover="showTip(event, 'fs4', 5)" class="mv">result</span> <span class="k">&lt;-</span> <span class="n">4</span>
 </code></pre>
-<table class="pre"><tr><td><pre><code>&lt;null&gt;</code></pre></td></tr></table>
-<p>Since this binding is explicitly declared as mutable, we can then mutate its value using the ← operator:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs4', 5)" onmouseover="showTip(event, 'fs4', 5)" class="mv">two</span> <span class="k">&lt;-</span> <span class="n">2</span>
+<table class="pre"><tr><td><pre><code>val mutable result: int = 4
+val it: unit = ()</code></pre></td></tr></table>
+<h2><a name="Type-safety" class="anchor" href="#Type-safety">Type safety</a></h2>
+<p>As noted above, F# is a statically, strongly typed language which means that every value has a single type and we are unable to change that type after initialization.
+This allows us to write code with confidence as every value's type is checked at compile-time and is guaranteed to be correct or our application won't compile.</p>
+<p>Because the value of <code>result</code> has the type of <code>int</code>, we cannot change the binding to a value with the type of <code>string</code>. This code will result in a compiler error:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="mv">result</span> <span class="o">=</span> <span class="n">1</span> <span class="o">+</span> <span class="n">1</span>
+<span onmouseout="hideTip(event, 'fs4', 7)" onmouseover="showTip(event, 'fs4', 7)" class="mv">result</span> <span class="k">&lt;-</span> <span class="s">&quot;Hello&quot;</span>
 </code></pre>
-<p>As previously stated, F# is a statically typed language with strong type safety.
-If we try to change the value of a binding after initialization, we’ll get a compiler error.
-Because <code>two</code> is declared as an <code>int</code> value, we cannot change the binding to a value with the type of <code>string</code>.</p>
-<p>This code will result in a compiler error:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="id">two</span> <span class="k">&lt;-</span> <span class="s">&quot;Hello&quot;</span>
-</code></pre>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="id">error</span> <span class="id">FS0001</span><span class="pn">:</span> <span class="id">This</span> <span class="id">expression</span> <span class="id">was</span> <span class="id">expected</span> <span class="k">to</span> <span class="id">have</span> <span class="k">type</span>
-    <span class="id">&#39;</span><span class="id">int&#39;</span>
-<span class="id">but</span> <span class="id">here</span> <span class="id">has</span> <span class="k">type</span>
-    <span class="id">&#39;</span><span class="id">string&#39;</span>
-</code></pre>
+<table class="pre"><tr><td class="snippet"><pre class="fssnip"><code lang="text">This expression was expected to have type
+    'int'
+but here has type
+    'string'
+</code></pre></td></tr></table>
 
             <div class="fsdocs-tip" id="fs1">val ten: int</div>
-<div class="fsdocs-tip" id="fs2">val five: int</div>
-<div class="fsdocs-tip" id="fs3">Multiple items<br />val int: value: &#39;T -&gt; int (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to signed 32-bit integer. This is a direct conversion for all 
- primitive numeric types. For strings, the input is converted using &lt;c&gt;Int32.Parse()&lt;/c&gt;  
+<div class="fsdocs-tip" id="fs2">val five: float</div>
+<div class="fsdocs-tip" id="fs3">Multiple items<br />val float: value: &#39;T -&gt; float (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to 64-bit float. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Double.Parse()&lt;/c&gt;  
  with InvariantCulture settings. Otherwise the operation requires an appropriate
- static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted int&lt;/returns&gt;<br />&lt;example id=&quot;int-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;&lt;/code&gt;&lt;/example&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
-type int = int32<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =
-  int<br /><em>&lt;summary&gt;The type of 32-bit signed integer numbers, annotated with a unit of measure. The unit
- of measure is erased in compiled code and when values of this type
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted float&lt;/returns&gt;<br />&lt;example id=&quot;float-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;&lt;/code&gt;&lt;/example&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type float = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =
+  float<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure.
+ The unit of measure is erased in compiled code and when values of this type
  are analyzed using reflection. The type is representationally equivalent to
- &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
-<div class="fsdocs-tip" id="fs4">val mutable two: int</div>
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs4">val mutable result: int</div>
 
         </div>
 

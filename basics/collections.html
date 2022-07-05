@@ -182,45 +182,39 @@ Some of these functions include:<br />
 <code>iter</code> which allows you to call a function with every element in a list,<br />
 and many more.</p>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 17)" onmouseover="showTip(event, 'fs12', 17)" class="id">nums</span> <span class="o">=</span> <span class="pn">[</span><span class="n">0..</span><span class="n">10</span><span class="pn">]</span>
-
-<span class="c">// [6; 7; 8; 9; 10]</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 18)" onmouseover="showTip(event, 'fs13', 18)" class="id">filteredNums</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="id">filter</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs16', 22)" onmouseover="showTip(event, 'fs16', 22)" class="fn">x</span> <span class="o">&gt;</span> <span class="n">5</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs12', 23)" onmouseover="showTip(event, 'fs12', 23)" class="id">nums</span>
-
-<span class="c">// [12; 14; 16; 18; 20]</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 24)" onmouseover="showTip(event, 'fs17', 24)" class="id">doubledFilteredNums</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 25)" onmouseover="showTip(event, 'fs14', 25)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs18', 26)" onmouseover="showTip(event, 'fs18', 26)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs16', 27)" onmouseover="showTip(event, 'fs16', 27)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="fn">x</span> <span class="o">*</span> <span class="n">2</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs13', 29)" onmouseover="showTip(event, 'fs13', 29)" class="id">filteredNums</span>
-
-<span onmouseout="hideTip(event, 'fs14', 30)" onmouseover="showTip(event, 'fs14', 30)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs19', 31)" onmouseover="showTip(event, 'fs19', 31)" class="id">iter</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs20', 32)" onmouseover="showTip(event, 'fs20', 32)" class="fn">printfn</span> <span class="s">&quot;</span><span class="pf">%d</span><span class="s">&quot;</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs17', 33)" onmouseover="showTip(event, 'fs17', 33)" class="id">doubledFilteredNums</span>
 </code></pre>
-<table class="pre"><tr><td><pre><code>12
-14
-16
-18
-20</code></pre></td></tr></table>
+<table class="pre"><tr><td><pre><code>[0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10]</code></pre></td></tr></table>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 18)" onmouseover="showTip(event, 'fs13', 18)" class="id">filteredNums</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="id">filter</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="fn">number</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs16', 22)" onmouseover="showTip(event, 'fs16', 22)" class="fn">number</span> <span class="o">&gt;</span> <span class="n">5</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs12', 23)" onmouseover="showTip(event, 'fs12', 23)" class="id">nums</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>[6; 7; 8; 9; 10]</code></pre></td></tr></table>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 24)" onmouseover="showTip(event, 'fs17', 24)" class="id">doubledFilteredNums</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs14', 25)" onmouseover="showTip(event, 'fs14', 25)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs18', 26)" onmouseover="showTip(event, 'fs18', 26)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs16', 27)" onmouseover="showTip(event, 'fs16', 27)" class="fn">number</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="fn">number</span> <span class="o">*</span> <span class="n">2</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs13', 29)" onmouseover="showTip(event, 'fs13', 29)" class="id">filteredNums</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>[12; 14; 16; 18; 20]</code></pre></td></tr></table>
 <h2><a name="Arrays" class="anchor" href="#Arrays">Arrays</a></h2>
 <p>Arrays and lists have very similar construction syntax, however, the square brackets are
 accompanied by a vertical bar.</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 34)" onmouseover="showTip(event, 'fs21', 34)" class="id">array</span> <span class="o">=</span> <span class="pn">[|</span> <span class="n">1</span><span class="pn">;</span><span class="n">2</span><span class="pn">;</span><span class="n">3</span><span class="pn">;</span><span class="n">4</span><span class="pn">;</span><span class="n">5</span> <span class="pn">|]</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 30)" onmouseover="showTip(event, 'fs19', 30)" class="id">array</span> <span class="o">=</span> <span class="pn">[|</span> <span class="n">1</span><span class="pn">;</span><span class="n">2</span><span class="pn">;</span><span class="n">3</span><span class="pn">;</span><span class="n">4</span><span class="pn">;</span><span class="n">5</span> <span class="pn">|]</span>
 </code></pre>
 <table class="pre"><tr><td><pre><code>val array: int[] = [|1; 2; 3; 4; 5|]</code></pre></td></tr></table>
 <p>Unlike lists, you can mutate individual elements in an array by using its indexer.</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs21', 35)" onmouseover="showTip(event, 'fs21', 35)" class="id">array</span><span class="pn">[</span><span class="n">0</span><span class="pn">]</span> <span class="k">&lt;-</span> <span class="n">10</span>
-<span onmouseout="hideTip(event, 'fs20', 36)" onmouseover="showTip(event, 'fs20', 36)" class="fn">printfn</span> <span class="s">&quot;</span><span class="pf">%A</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs21', 37)" onmouseover="showTip(event, 'fs21', 37)" class="id">array</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs19', 31)" onmouseover="showTip(event, 'fs19', 31)" class="id">array</span><span class="pn">[</span><span class="n">0</span><span class="pn">]</span> <span class="k">&lt;-</span> <span class="n">10</span>
 </code></pre>
 <table class="pre"><tr><td><pre><code>[|10; 2; 3; 4; 5|]</code></pre></td></tr></table>
 <h2><a name="Sequences" class="anchor" href="#Sequences">Sequences</a></h2>
 <p>Sequences are constructed using a Computation Expression (you'll learn about these later).
 Some examples of sequence expressions are as follows:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs22', 38)" onmouseover="showTip(event, 'fs22', 38)" class="id">numsSequence</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs23', 39)" onmouseover="showTip(event, 'fs23', 39)" class="fn">seq</span> <span class="pn">{</span> <span class="n">1..</span><span class="n">10</span> <span class="pn">}</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs24', 40)" onmouseover="showTip(event, 'fs24', 40)" class="id">doublesSequence</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs23', 41)" onmouseover="showTip(event, 'fs23', 41)" class="fn">seq</span> <span class="pn">{</span> <span class="k">for</span> <span onmouseout="hideTip(event, 'fs11', 42)" onmouseover="showTip(event, 'fs11', 42)" class="fn">i</span> <span class="k">in</span> <span class="n">0..</span><span class="n">10</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs11', 43)" onmouseover="showTip(event, 'fs11', 43)" class="fn">i</span> <span class="o">*</span> <span class="n">2</span> <span class="pn">}</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs25', 44)" onmouseover="showTip(event, 'fs25', 44)" class="id">sequence</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs23', 45)" onmouseover="showTip(event, 'fs23', 45)" class="fn">seq</span> <span class="pn">{</span>
-        <span class="n">1</span>
-        <span class="n">2</span>
-        <span class="n">3</span>
-        <span class="n">4</span>
-        <span class="n">5</span>
-    <span class="pn">}</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs20', 32)" onmouseover="showTip(event, 'fs20', 32)" class="id">numsSequence</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs21', 33)" onmouseover="showTip(event, 'fs21', 33)" class="fn">seq</span> <span class="pn">{</span> <span class="n">1..</span><span class="n">10</span> <span class="pn">}</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="id">doublesSequence</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs21', 35)" onmouseover="showTip(event, 'fs21', 35)" class="fn">seq</span> <span class="pn">{</span> <span class="k">for</span> <span onmouseout="hideTip(event, 'fs11', 36)" onmouseover="showTip(event, 'fs11', 36)" class="fn">i</span> <span class="k">in</span> <span class="n">0..</span><span class="n">10</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs11', 37)" onmouseover="showTip(event, 'fs11', 37)" class="fn">i</span> <span class="o">*</span> <span class="n">2</span> <span class="pn">}</span>
 </code></pre>
+<p>As noted in the beginning, the elements of a sequence aren't computed when the sequence is created. They are only computed
+when the value is required to perform a certain operation.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 38)" onmouseover="showTip(event, 'fs23', 38)" class="id">sequence</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs21', 39)" onmouseover="showTip(event, 'fs21', 39)" class="fn">seq</span> <span class="pn">{</span> <span class="n">0..</span><span class="n">10</span> <span class="pn">}</span>
+<span onmouseout="hideTip(event, 'fs24', 40)" onmouseover="showTip(event, 'fs24', 40)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs25', 41)" onmouseover="showTip(event, 'fs25', 41)" class="id">head</span> <span onmouseout="hideTip(event, 'fs23', 42)" onmouseover="showTip(event, 'fs23', 42)" class="id">sequence</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>val sequence: seq&lt;int&gt;
+val it: int = 0</code></pre></td></tr></table>
+<p>As you can see from the above example, the first element of the sequence is computed as a result of calling <code>Seq.head</code>.
+Any further call to <code>Seq.head</code> will use the already evaluated value. No further evaluation of the first element is required.</p>
 
             <div class="fsdocs-tip" id="fs1">Multiple items<br />val list: int list<br /><br />--------------------<br />type &#39;T list = List&lt;&#39;T&gt;<br /><em>&lt;summary&gt;The type of immutable singly-linked lists. &lt;/summary&gt;<br />&lt;remarks&gt;See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ListModule&quot; /&gt; module for further operations related to lists.
 
@@ -272,7 +266,7 @@ from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations fo
  input |&amp;gt; List.filter isComingFromStarTrek
  &lt;/code&gt;
  Evaluates to &lt;c&gt;[(2, &quot;Kirk&quot;); (4, &quot;Spock&quot;)]&lt;/c&gt;&lt;/example&gt;</em></div>
-<div class="fsdocs-tip" id="fs16">val x: int</div>
+<div class="fsdocs-tip" id="fs16">val number: int</div>
 <div class="fsdocs-tip" id="fs17">val doubledFilteredNums: int list</div>
 <div class="fsdocs-tip" id="fs18">val map: mapping: (&#39;T -&gt; &#39;U) -&gt; list: &#39;T list -&gt; &#39;U list<br /><em>&lt;summary&gt;Builds a new collection whose elements are the results of applying the given function
  to each of the elements of the collection.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements from the input list.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The list of transformed elements.&lt;/returns&gt;<br />&lt;example id=&quot;map-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
@@ -281,33 +275,31 @@ from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations fo
  inputs |&amp;gt; List.map (fun x -&amp;gt; x.Length)
  &lt;/code&gt;
  Evaluates to &lt;c&gt;[ 1; 3; 2 ]&lt;/c&gt;&lt;/example&gt;</em></div>
-<div class="fsdocs-tip" id="fs19">val iter: action: (&#39;T -&gt; unit) -&gt; list: &#39;T list -&gt; unit<br /><em>&lt;summary&gt;Applies the given function to each element of the collection.&lt;/summary&gt;<br />&lt;param name=&quot;action&quot;&gt;The function to apply to elements from the input list.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;example id=&quot;iter-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
- let inputs = [ &quot;a&quot;; &quot;b&quot;; &quot;c&quot; ]
-
- inputs |&amp;gt; List.iter (printfn &quot;%s&quot;)
- &lt;/code&gt;
- Evaluates to &lt;c&gt;unit&lt;/c&gt; and prints
- &lt;code&gt;
- a
- b
- c
- &lt;/code&gt;
- in the console.
- &lt;/example&gt;</em></div>
-<div class="fsdocs-tip" id="fs20">val printfn: format: Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><em>&lt;summary&gt;Print to &lt;c&gt;stdout&lt;/c&gt; using the given format, and add a newline.&lt;/summary&gt;<br />&lt;param name=&quot;format&quot;&gt;The formatter.&lt;/param&gt;<br />&lt;returns&gt;The formatted result.&lt;/returns&gt;<br />&lt;example&gt;See &lt;c&gt;Printf.printfn&lt;/c&gt; (link: &lt;see cref=&quot;M:Microsoft.FSharp.Core.PrintfModule.PrintFormatLine``1&quot; /&gt;) for examples.&lt;/example&gt;</em></div>
-<div class="fsdocs-tip" id="fs21">Multiple items<br />val array: int[]<br /><br />--------------------<br />type &#39;T array = &#39;T[]<br /><em>&lt;summary&gt;Single dimensional, zero-based arrays, written &lt;c&gt;int[]&lt;/c&gt;, &lt;c&gt;string[]&lt;/c&gt; etc.&lt;/summary&gt;<br />&lt;remarks&gt;Use the values in the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ArrayModule&quot; /&gt; module to manipulate values 
+<div class="fsdocs-tip" id="fs19">Multiple items<br />val array: int[]<br /><br />--------------------<br />type &#39;T array = &#39;T[]<br /><em>&lt;summary&gt;Single dimensional, zero-based arrays, written &lt;c&gt;int[]&lt;/c&gt;, &lt;c&gt;string[]&lt;/c&gt; etc.&lt;/summary&gt;<br />&lt;remarks&gt;Use the values in the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ArrayModule&quot; /&gt; module to manipulate values 
  of this type, or the notation &lt;c&gt;arr.[x]&lt;/c&gt; to get/set array
  values.&lt;/remarks&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
-<div class="fsdocs-tip" id="fs22">val numsSequence: seq&lt;int&gt;</div>
-<div class="fsdocs-tip" id="fs23">Multiple items<br />val seq: sequence: seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Builds a sequence using sequence expression syntax&lt;/summary&gt;<br />&lt;param name=&quot;sequence&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result sequence.&lt;/returns&gt;<br />&lt;example id=&quot;seq-cast-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+<div class="fsdocs-tip" id="fs20">val numsSequence: seq&lt;int&gt;</div>
+<div class="fsdocs-tip" id="fs21">Multiple items<br />val seq: sequence: seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Builds a sequence using sequence expression syntax&lt;/summary&gt;<br />&lt;param name=&quot;sequence&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result sequence.&lt;/returns&gt;<br />&lt;example id=&quot;seq-cast-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
  seq { for i in 0..10 do yield (i, i*i) }
  &lt;/code&gt;&lt;/example&gt;</em><br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Collections.Generic.IEnumerable`1&quot; /&gt;&lt;/summary&gt;<br />&lt;remarks&gt;
   See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.SeqModule&quot; /&gt; module for further operations related to sequences.
 
   See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/sequences&quot;&gt;F# Language Guide - Sequences&lt;/a&gt;.
 &lt;/remarks&gt;</em></div>
-<div class="fsdocs-tip" id="fs24">val doublesSequence: seq&lt;int&gt;</div>
-<div class="fsdocs-tip" id="fs25">val sequence: seq&lt;int&gt;</div>
+<div class="fsdocs-tip" id="fs22">val doublesSequence: seq&lt;int&gt;</div>
+<div class="fsdocs-tip" id="fs23">val sequence: seq&lt;int&gt;</div>
+<div class="fsdocs-tip" id="fs24">module Seq
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.seq`1&quot; /&gt;.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs25">val head: source: seq&lt;&#39;T&gt; -&gt; &#39;T<br /><em>&lt;summary&gt;Returns the first element of the sequence.&lt;/summary&gt;<br />&lt;param name=&quot;source&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The first element of the sequence.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input sequence is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input does not have any elements.&lt;/exception&gt;<br />&lt;example id=&quot;head-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let inputs = [&quot;banana&quot;; &quot;pear&quot;]
+
+ inputs |&amp;gt; Seq.head
+ &lt;/code&gt;
+ Evaluates to &lt;c&gt;banana&lt;/c&gt;&lt;/example&gt;<br />&lt;example id=&quot;head-2&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ [] |&amp;gt; Seq.head
+ &lt;/code&gt;
+ Throws &lt;c&gt;ArgumentException&lt;/c&gt;&lt;/example&gt;</em></div>
 
         </div>
 

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Piping and Composition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" id="theme_link" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/materia/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="/content/navbar-fixed-left.css" />
+    <link type="text/css" rel="stylesheet" href="/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/content/fsdocs-tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-secondary fixed-left" id="fsdocs-nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarsExampleDefault">
+            <a href="/"><img id="fsdocs-logo" src="/img/logo.png" /></a>
+            <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+            <div id="header">
+                <div class="searchbox" id="fsdocs-searchbox">
+                    <label for="search-by">
+                        <i class="fas fa-search"></i>
+                    </label>
+                    <input data-search-input="" id="search-by" type="search" placeholder="Search..." />
+                    <span data-search-clear="">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- END SEARCH BOX: this adds support for the search box -->
+            <ul class="navbar-nav">
+                <li class="nav-header">Links</li>
+                <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="https://github.com/fsharpforyou/fsharpforyou.github.io/blob/main/LICENSE">License</a></li>
+                <!--li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="{{fsdocs-release-notes-link}}">Release Notes</a></li-->
+                <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="https://github.com/fsharpforyou/fsharpforyou.github.io">Source Repository</a></li>
+                <li class="nav-header">
+  Introduction
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/introduction/installing.html">
+    Installing F#
+  </a>
+</li>             
+<li class="nav-header">
+  Basics
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/values.html">
+    Values and expressions
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/fundamental_types.html">
+    Fundamental Types
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/basic_operators.html">
+    Basic Operators
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/functions.html">
+    Functions
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/collections.html">
+    Collections
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/creating_types.html">
+    Creating Types
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/conditionals.html">
+    Conditionals
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/pattern_matching.html">
+    Pattern Matching
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/piping_and_composition.html">
+    Piping and Composition
+  </a>
+</li>             
+<li class="nav-header">
+  Contributing
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/contributing.html">
+    Contributing
+  </a>
+</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="masthead">
+            <h3 class="muted"><a href="/">F# For You!</a></h3>
+        </div>
+        <hr />
+        <div class="container" id="fsdocs-content">
+            
+<h2><a name="Piping" class="anchor" href="#Piping">Piping</a></h2>
+<p>Piping allows you to pass values into a function's or union's parameter and return the result.
+This is often used when you're piping multiple function's and their results into each other.</p>
+<p>Passing a value of <code>10</code> into a function like so:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">function</span> <span class="n">10</span>
+</code></pre>
+<p>Is equivalent to piping that value into the function like so:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="n">10</span>
+<span class="o">|&gt;</span> <span class="k">function</span>
+</code></pre>
+<p>This is really beneficial when you're dealing with "long" function chains like so:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="id">f</span> <span class="id">x</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+<span class="k">let</span> <span class="id">g</span> <span class="id">x</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+<span class="k">let</span> <span class="id">m</span> <span class="id">x</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+
+<span class="k">let</span> <span class="id">a</span> <span class="o">=</span> <span class="id">f</span> <span class="n">10</span>
+<span class="k">let</span> <span class="id">b</span> <span class="o">=</span> <span class="id">g</span> <span class="id">a</span>
+<span class="k">let</span> <span class="id">c</span> <span class="o">=</span> <span class="id">m</span> <span class="id">b</span>
+</code></pre>
+<p>Using the pipe operator, the above example would be:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="id">f</span> <span class="id">x</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+<span class="k">let</span> <span class="id">g</span> <span class="id">x</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+<span class="k">let</span> <span class="id">m</span> <span class="id">x</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+
+<span class="n">10</span>
+<span class="o">|&gt;</span> <span class="id">f</span>
+<span class="o">|&gt;</span> <span class="id">g</span>
+<span class="o">|&gt;</span> <span class="id">m</span>
+</code></pre>
+<p>A more practical example of the pipe operator in action is this:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="fn">double</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="fn">x</span> <span class="o">*</span> <span class="n">2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="fn">isEven</span> <span onmouseout="hideTip(event, 'fs2', 5)" onmouseover="showTip(event, 'fs2', 5)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 6)" onmouseover="showTip(event, 'fs2', 6)" class="fn">x</span> <span class="o">%</span> <span class="n">2</span> <span class="o">=</span> <span class="n">0</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 7)" onmouseover="showTip(event, 'fs4', 7)" class="id">nums</span> <span class="o">=</span>
+    <span class="pn">[</span><span class="n">0..</span><span class="n">20</span><span class="pn">]</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 9)" onmouseover="showTip(event, 'fs6', 9)" class="id">map</span> <span onmouseout="hideTip(event, 'fs1', 10)" onmouseover="showTip(event, 'fs1', 10)" class="fn">double</span> <span class="c">// double every number</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs5', 11)" onmouseover="showTip(event, 'fs5', 11)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 12)" onmouseover="showTip(event, 'fs7', 12)" class="id">filter</span> <span onmouseout="hideTip(event, 'fs3', 13)" onmouseover="showTip(event, 'fs3', 13)" class="fn">isEven</span> <span class="c">// only even numbers</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs5', 14)" onmouseover="showTip(event, 'fs5', 14)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs8', 15)" onmouseover="showTip(event, 'fs8', 15)" class="id">sortDescending</span> <span class="c">// sort from high to low</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>[40; 38; 36; 34; 32; 30; 28; 26; 24; 22; 20; 18; 16; 14; 12; 10; 8; 6; 4; 2; 0]</code></pre></td></tr></table>
+<h2><a name="Function-Composition" class="anchor" href="#Function-Composition">Function Composition</a></h2>
+<p>You can compose multiple functions together using the <code>&gt;&gt;</code> operator.
+This allows you to evaluate the left-hand function and pass the result into the right-hand function.
+The output type of the left-hand function must be the input type of the right hand function, example: <code>A -&gt; B</code> and <code>B -&gt; C</code>.
+This is very similar to piping, but instead of piping values into functions, we are building up new functions by combining smaller ones.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="fn">addFive</span> <span onmouseout="hideTip(event, 'fs2', 17)" onmouseover="showTip(event, 'fs2', 17)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 18)" onmouseover="showTip(event, 'fs2', 18)" class="fn">x</span> <span class="o">+</span> <span class="n">5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 19)" onmouseover="showTip(event, 'fs10', 19)" class="fn">multiplyTwo</span> <span onmouseout="hideTip(event, 'fs2', 20)" onmouseover="showTip(event, 'fs2', 20)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 21)" onmouseover="showTip(event, 'fs2', 21)" class="fn">x</span> <span class="o">*</span> <span class="n">2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 22)" onmouseover="showTip(event, 'fs11', 22)" class="fn">addFiveMultiplyTwo</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 23)" onmouseover="showTip(event, 'fs9', 23)" class="fn">addFive</span> <span class="o">&gt;</span><span class="pn">&gt;</span> <span onmouseout="hideTip(event, 'fs10', 24)" onmouseover="showTip(event, 'fs10', 24)" class="fn">multiplyTwo</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 25)" onmouseover="showTip(event, 'fs12', 25)" class="id">twenty</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 26)" onmouseover="showTip(event, 'fs11', 26)" class="fn">addFiveMultiplyTwo</span> <span class="n">5</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>val addFive: x: int -&gt; int
+val multiplyTwo: x: int -&gt; int
+val addFiveMultiplyTwo: (int -&gt; int)
+val twenty: int = 20</code></pre></td></tr></table>
+<p>You can chain these together to create new function by composing (or combining) many smaller functions</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 27)" onmouseover="showTip(event, 'fs13', 27)" class="fn">addTwo</span> <span onmouseout="hideTip(event, 'fs2', 28)" onmouseover="showTip(event, 'fs2', 28)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 29)" onmouseover="showTip(event, 'fs2', 29)" class="fn">x</span> <span class="o">+</span> <span class="n">2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 30)" onmouseover="showTip(event, 'fs14', 30)" class="fn">multiplyFive</span> <span onmouseout="hideTip(event, 'fs2', 31)" onmouseover="showTip(event, 'fs2', 31)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 32)" onmouseover="showTip(event, 'fs2', 32)" class="fn">x</span> <span class="o">*</span> <span class="n">5</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 33)" onmouseover="showTip(event, 'fs15', 33)" class="fn">divideThree</span> <span onmouseout="hideTip(event, 'fs2', 34)" onmouseover="showTip(event, 'fs2', 34)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 35)" onmouseover="showTip(event, 'fs2', 35)" class="fn">x</span> <span class="o">/</span> <span class="n">3</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 36)" onmouseover="showTip(event, 'fs16', 36)" class="fn">subtractFour</span> <span onmouseout="hideTip(event, 'fs2', 37)" onmouseover="showTip(event, 'fs2', 37)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 38)" onmouseover="showTip(event, 'fs2', 38)" class="fn">x</span> <span class="o">-</span> <span class="n">4</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 39)" onmouseover="showTip(event, 'fs17', 39)" class="fn">operation</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs13', 40)" onmouseover="showTip(event, 'fs13', 40)" class="fn">addTwo</span> <span class="o">&gt;</span><span class="pn">&gt;</span> <span onmouseout="hideTip(event, 'fs14', 41)" onmouseover="showTip(event, 'fs14', 41)" class="fn">multiplyFive</span> <span class="o">&gt;</span><span class="pn">&gt;</span> <span onmouseout="hideTip(event, 'fs15', 42)" onmouseover="showTip(event, 'fs15', 42)" class="fn">divideThree</span> <span class="o">&gt;</span><span class="pn">&gt;</span> <span onmouseout="hideTip(event, 'fs16', 43)" onmouseover="showTip(event, 'fs16', 43)" class="fn">subtractFour</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 44)" onmouseover="showTip(event, 'fs18', 44)" class="id">sixteen</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs17', 45)" onmouseover="showTip(event, 'fs17', 45)" class="fn">operation</span> <span class="n">10</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>val addTwo: x: int -&gt; int
+val multiplyFive: x: int -&gt; int
+val divideThree: x: int -&gt; int
+val subtractFour: x: int -&gt; int
+val operation: (int -&gt; int)
+val sixteen: int = 16</code></pre></td></tr></table>
+
+            <div class="fsdocs-tip" id="fs1">Multiple items<br />val double: x: int -&gt; int<br /><br />--------------------<br />[&lt;Struct&gt;]
+type double = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;. Identical to &lt;see cref=&quot;T:Microsoft.FSharp.Core.float&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type double&lt;&#39;Measure&gt; = float&lt;&#39;Measure&gt;<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure.
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs2">val x: int</div>
+<div class="fsdocs-tip" id="fs3">val isEven: x: int -&gt; bool</div>
+<div class="fsdocs-tip" id="fs4">val nums: int list</div>
+<div class="fsdocs-tip" id="fs5">Multiple items<br />module List
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.list`1&quot; /&gt;.&lt;/summary&gt;<br />&lt;namespacedoc&gt;&lt;summary&gt;Operations for collections such as lists, arrays, sets, maps and sequences. See also 
+    &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/fsharp-collection-types&quot;&gt;F# Collection Types&lt;/a&gt; in the F# Language Guide.
+ &lt;/summary&gt;&lt;/namespacedoc&gt;</em><br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  | op_Nil
+  | op_ColonColon of Head: &#39;T * Tail: &#39;T list
+  interface IReadOnlyList&lt;&#39;T&gt;
+  interface IReadOnlyCollection&lt;&#39;T&gt;
+  interface IEnumerable
+  interface IEnumerable&lt;&#39;T&gt;
+  member GetReverseIndex: rank: int * offset: int -&gt; int
+  member GetSlice: startIndex: int option * endIndex: int option -&gt; &#39;T list
+  static member Cons: head: &#39;T * tail: &#39;T list -&gt; &#39;T list
+  member Head: &#39;T
+  member IsEmpty: bool
+  member Item: index: int -&gt; &#39;T with get
+  ...<br /><em>&lt;summary&gt;The type of immutable singly-linked lists.&lt;/summary&gt;<br />&lt;remarks&gt;Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1;2;3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+ &lt;/remarks&gt;<br />&lt;exclude /&gt;</em></div>
+<div class="fsdocs-tip" id="fs6">val map: mapping: (&#39;T -&gt; &#39;U) -&gt; list: &#39;T list -&gt; &#39;U list<br /><em>&lt;summary&gt;Builds a new collection whose elements are the results of applying the given function
+ to each of the elements of the collection.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements from the input list.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The list of transformed elements.&lt;/returns&gt;<br />&lt;example id=&quot;map-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let inputs = [ &quot;a&quot;; &quot;bbb&quot;; &quot;cc&quot; ]
+
+ inputs |&amp;gt; List.map (fun x -&amp;gt; x.Length)
+ &lt;/code&gt;
+ Evaluates to &lt;c&gt;[ 1; 3; 2 ]&lt;/c&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs7">val filter: predicate: (&#39;T -&gt; bool) -&gt; list: &#39;T list -&gt; &#39;T list<br /><em>&lt;summary&gt;Returns a new collection containing only the elements of the collection
+ for which the given predicate returns &quot;true&quot;&lt;/summary&gt;<br />&lt;param name=&quot;predicate&quot;&gt;The function to test the input elements.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;A list containing only the elements that satisfy the predicate.&lt;/returns&gt;<br />&lt;example id=&quot;filter-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let input = [1, &quot;Luke&quot;; 2, &quot;Kirk&quot;; 3, &quot;Kenobi&quot;; 4, &quot;Spock&quot;]
+
+ let isComingFromStarTrek (x,_) = isEven x
+ 
+ input |&amp;gt; List.filter isComingFromStarTrek
+ &lt;/code&gt;
+ Evaluates to &lt;c&gt;[(2, &quot;Kirk&quot;); (4, &quot;Spock&quot;)]&lt;/c&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs8">val sortDescending: list: &#39;T list -&gt; &#39;T list (requires comparison)<br /><em>&lt;summary&gt;Sorts the given list in descending order using &lt;see cref=&quot;M:Microsoft.FSharp.Core.Operators.compare&quot; /&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;This is a stable sort, i.e. the original order of equal elements is preserved.&lt;/remarks&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The sorted list.&lt;/returns&gt;<br />&lt;example id=&quot;sortdescending-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let input = [8; 4; 3; 1; 6; 1]
+
+ input |&amp;gt; List.sortDescending
+ &lt;/code&gt;
+ Evaluates to &lt;c&gt;[8; 6; 4; 3; 1; 1]&lt;/c&gt;.
+ &lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs9">val addFive: x: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs10">val multiplyTwo: x: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs11">val addFiveMultiplyTwo: (int -&gt; int)</div>
+<div class="fsdocs-tip" id="fs12">val twenty: int</div>
+<div class="fsdocs-tip" id="fs13">val addTwo: x: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs14">val multiplyFive: x: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs15">val divideThree: x: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs16">val subtractFour: x: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs17">val operation: (int -&gt; int)</div>
+<div class="fsdocs-tip" id="fs18">val sixteen: int</div>
+
+        </div>
+
+        <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+        <script type="text/javascript">var fsdocs_search_baseurl = '/';</script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+        <script type="text/javascript" src="/content/fsdocs-search.js"></script>
+        <!-- END SEARCH BOX: this adds support for the search box -->
+    </div>
+</body>
+
+</html>

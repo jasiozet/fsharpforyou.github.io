@@ -188,6 +188,14 @@ This allows us to write code with confidence as every value's type is checked at
 but here has type
     'string'
 </code></pre></td></tr></table>
+<h2><a name="Indentation-Awareness" class="anchor" href="#Indentation-Awareness">Indentation Awareness</a></h2>
+<p>F# relies on the level of indentation to determine the beginning and the end of an expression.
+Consistency is key, once a new indentation offset is created, every following expression must be aligned with that offset.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="id">twenty</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 9)" onmouseover="showTip(event, 'fs1', 9)" class="fn">ten</span> <span class="o">=</span> <span class="n">10</span>
+    <span onmouseout="hideTip(event, 'fs1', 10)" onmouseover="showTip(event, 'fs1', 10)" class="fn">ten</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs1', 11)" onmouseover="showTip(event, 'fs1', 11)" class="fn">ten</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>val twenty: int = 20</code></pre></td></tr></table>
 
             <div class="fsdocs-tip" id="fs1">val ten: int</div>
 <div class="fsdocs-tip" id="fs2">val five: float</div>
@@ -201,6 +209,7 @@ type float = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI t
  are analyzed using reflection. The type is representationally equivalent to
  &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
 <div class="fsdocs-tip" id="fs4">val mutable result: int</div>
+<div class="fsdocs-tip" id="fs5">val twenty: int</div>
 
         </div>
 

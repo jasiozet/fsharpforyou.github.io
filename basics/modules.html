@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Modules</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" id="theme_link" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/materia/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="/content/navbar-fixed-left.css" />
+    <link type="text/css" rel="stylesheet" href="/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/content/fsdocs-tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-secondary fixed-left" id="fsdocs-nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-nav-scroll" id="navbarsExampleDefault">
+            <a href="/"><img id="fsdocs-logo" src="/img/logo.png" /></a>
+            <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+            <div id="header">
+                <div class="searchbox" id="fsdocs-searchbox">
+                    <label for="search-by">
+                        <i class="fas fa-search"></i>
+                    </label>
+                    <input data-search-input="" id="search-by" type="search" placeholder="Search..." />
+                    <span data-search-clear="">
+                        <i class="fas fa-times"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- END SEARCH BOX: this adds support for the search box -->
+            <ul class="navbar-nav">
+                <li class="nav-header">Links</li>
+                <li class="nav-item" id="fsdocs-license-link"><a class="nav-link" href="https://github.com/fsharpforyou/fsharpforyou.github.io/blob/main/LICENSE">License</a></li>
+                <!--li class="nav-item" id="fsdocs-release-notes-link"><a class="nav-link" href="{{fsdocs-release-notes-link}}">Release Notes</a></li-->
+                <li class="nav-item" id="fsdocs-repository-link"><a class="nav-link" href="https://github.com/fsharpforyou/fsharpforyou.github.io">Source Repository</a></li>
+                <li class="nav-header">
+  Introduction
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/introduction/installing.html">
+    Installing F#
+  </a>
+</li>             
+<li class="nav-header">
+  Basics
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/values.html">
+    Values and expressions
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/fundamental_types.html">
+    Fundamental Types
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/basic_operators.html">
+    Basic Operators
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/functions.html">
+    Functions
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/collections.html">
+    Collections
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/creating_types.html">
+    Creating Types
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/conditionals.html">
+    Conditionals
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/pattern_matching.html">
+    Pattern Matching
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/piping_and_composition.html">
+    Piping and Composition
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/basics/modules.html">
+    Modules
+  </a>
+</li>             
+<li class="nav-header">
+  Contributing
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/contributing.html">
+    Contributing
+  </a>
+</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="masthead">
+            <h3 class="muted"><a href="/">F# For You!</a></h3>
+        </div>
+        <hr />
+        <div class="container" id="fsdocs-content">
+            
+<h1><a name="Modules" class="anchor" href="#Modules">Modules</a></h1>
+<p>Modules allow you to logically and physically group related code.
+Modules can contain types, functions, bindings, and other modules.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">module</span> <span class="m">Math</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="fn">add</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="fn">x</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="fn">y</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 4)" onmouseover="showTip(event, 'fs2', 4)" class="fn">x</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="fn">y</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="fn">multiply</span> <span onmouseout="hideTip(event, 'fs2', 7)" onmouseover="showTip(event, 'fs2', 7)" class="fn">x</span> <span onmouseout="hideTip(event, 'fs3', 8)" onmouseover="showTip(event, 'fs3', 8)" class="fn">y</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 9)" onmouseover="showTip(event, 'fs2', 9)" class="fn">x</span> <span class="o">*</span> <span onmouseout="hideTip(event, 'fs3', 10)" onmouseover="showTip(event, 'fs3', 10)" class="fn">y</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>module Math =
+  val add: x: int -&gt; y: int -&gt; int
+  val multiply: x: int -&gt; y: int -&gt; int</code></pre></td></tr></table>
+<p>You can use types and functions from other modules by importing them using
+the <code>open</code> keyword followed by the module name.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 11)" onmouseover="showTip(event, 'fs5', 11)" class="m">Math</span>
+
+<span class="n">40</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs1', 12)" onmouseover="showTip(event, 'fs1', 12)" class="fn">add</span> <span class="n">3</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs4', 13)" onmouseover="showTip(event, 'fs4', 13)" class="fn">multiply</span> <span class="n">4</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>172</code></pre></td></tr></table>
+<p>As you can see from the above example. We import the functions from the <code>Math</code> module
+and call them like any other function. You can also access module members by their fully qualified names without importing the module.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs5', 14)" onmouseover="showTip(event, 'fs5', 14)" class="m">Math</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs1', 15)" onmouseover="showTip(event, 'fs1', 15)" class="id">add</span> <span class="n">3</span> <span class="n">5</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>8</code></pre></td></tr></table>
+<p>You can annotate a module with <code>[&lt;AutoOpen&gt;]</code> to automatically import/open it without requiring <code>open ...</code>.
+The primary purpose of this is to automatically import let bindings and utility functions
+to allow other modules to call them without requiring an import.
+This can however cause clutter if you use it too much and it should be avoided in a lot of cases.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">[&lt;</span><span onmouseout="hideTip(event, 'fs6', 16)" onmouseover="showTip(event, 'fs6', 16)" class="rt">AutoOpen</span><span class="pn">&gt;]</span>
+<span class="k">module</span> <span class="m">Helpers</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs7', 17)" onmouseover="showTip(event, 'fs7', 17)" class="fn">log</span> <span onmouseout="hideTip(event, 'fs8', 18)" onmouseover="showTip(event, 'fs8', 18)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 19)" onmouseover="showTip(event, 'fs9', 19)" class="fn">printfn</span> <span class="s">$&quot;Something happened! {</span><span onmouseout="hideTip(event, 'fs8', 20)" onmouseover="showTip(event, 'fs8', 20)" class="fn">x</span><span class="s">}&quot;</span>
+
+<span onmouseout="hideTip(event, 'fs7', 21)" onmouseover="showTip(event, 'fs7', 21)" class="fn">log</span> <span class="s">&quot;I called a module function without an `open`&quot;</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>Something happened! I called a module function without an `open`</code></pre></td></tr></table>
+<p>Sometimes it makes sense to require qualified access for various reasons including name conflicts, clarity/semantics, and integration
+with other qualified function calls. You can do this with the <code>[&lt;RequireQualifiedAccess&gt;]</code> attribute.
+Here we require qualified access to seamlessly integrate our function with other List module functions in the pipeline
+and avoid naming conflicts with other <code>double</code> functions that may exist elsewhere.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">[&lt;</span><span onmouseout="hideTip(event, 'fs10', 22)" onmouseover="showTip(event, 'fs10', 22)" class="rt">RequireQualifiedAccess</span><span class="pn">&gt;]</span>
+<span class="k">module</span> <span onmouseout="hideTip(event, 'fs11', 23)" onmouseover="showTip(event, 'fs11', 23)" class="m">List</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs12', 24)" onmouseover="showTip(event, 'fs12', 24)" class="fn">double</span> <span onmouseout="hideTip(event, 'fs13', 25)" onmouseover="showTip(event, 'fs13', 25)" class="fn">list</span> <span class="o">=</span>
+        <span onmouseout="hideTip(event, 'fs13', 26)" onmouseover="showTip(event, 'fs13', 26)" class="fn">list</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 27)" onmouseover="showTip(event, 'fs11', 27)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 28)" onmouseover="showTip(event, 'fs14', 28)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs15', 29)" onmouseover="showTip(event, 'fs15', 29)" class="fn">elem</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs15', 30)" onmouseover="showTip(event, 'fs15', 30)" class="fn">elem</span> <span class="o">*</span> <span class="n">2</span><span class="pn">)</span>
+
+<span class="pn">[</span><span class="n">1..</span><span class="n">10</span><span class="pn">]</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 31)" onmouseover="showTip(event, 'fs16', 31)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs17', 32)" onmouseover="showTip(event, 'fs17', 32)" class="id">filter</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs2', 33)" onmouseover="showTip(event, 'fs2', 33)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs2', 34)" onmouseover="showTip(event, 'fs2', 34)" class="fn">x</span> <span class="o">%</span> <span class="n">2</span> <span class="o">=</span> <span class="n">0</span><span class="pn">)</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs16', 35)" onmouseover="showTip(event, 'fs16', 35)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs18', 36)" onmouseover="showTip(event, 'fs18', 36)" class="id">double</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>[4; 8; 12; 16; 20]</code></pre></td></tr></table>
+<p>We can restrict access to certain functions, types, and their constructors
+by using accessibility modifiers.<br />
+<code>public</code> indicates that a function or type can be accessed by any module.<br />
+<code>private</code> indicates that a function or type can be accessed by only the same module.<br />
+<code>internal</code> indicates that a function or type can be accessed within the same assembly.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">module</span> <span onmouseout="hideTip(event, 'fs19', 37)" onmouseover="showTip(event, 'fs19', 37)" class="m">AccessibilityModifiers</span> <span class="o">=</span>
+    <span class="c">// a private type</span>
+    <span class="c">// can only be used within this module.</span>
+    <span class="k">type</span> <span class="k">private</span> <span onmouseout="hideTip(event, 'fs20', 38)" onmouseover="showTip(event, 'fs20', 38)" class="rt">Customer</span> <span class="o">=</span> <span class="pn">{</span> <span onmouseout="hideTip(event, 'fs21', 39)" onmouseover="showTip(event, 'fs21', 39)" class="prop">FirstName</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs22', 40)" onmouseover="showTip(event, 'fs22', 40)" class="rt">string</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs23', 41)" onmouseover="showTip(event, 'fs23', 41)" class="prop">LastName</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs22', 42)" onmouseover="showTip(event, 'fs22', 42)" class="rt">string</span> <span class="pn">}</span>
+
+    <span class="k">type</span> <span onmouseout="hideTip(event, 'fs24', 43)" onmouseover="showTip(event, 'fs24', 43)" class="rt">Person</span> <span class="o">=</span>
+        <span class="c">// a private constructor</span>
+        <span class="c">// this type can only be constructed</span>
+        <span class="c">// within this module.</span>
+        <span class="c">// this type can be used, but not constructed, elsewhere.</span>
+        <span class="k">private</span>
+            <span class="pn">{</span> <span onmouseout="hideTip(event, 'fs25', 44)" onmouseover="showTip(event, 'fs25', 44)" class="prop">FirstName</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs22', 45)" onmouseover="showTip(event, 'fs22', 45)" class="rt">string</span>
+              <span onmouseout="hideTip(event, 'fs26', 46)" onmouseover="showTip(event, 'fs26', 46)" class="prop">LastName</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs22', 47)" onmouseover="showTip(event, 'fs22', 47)" class="rt">string</span> <span class="pn">}</span>
+
+    <span class="c">// a private function.</span>
+    <span class="c">// can only be called within this module</span>
+    <span class="k">let</span> <span class="k">private</span> <span onmouseout="hideTip(event, 'fs27', 48)" onmouseover="showTip(event, 'fs27', 48)" class="fn">operation</span> <span onmouseout="hideTip(event, 'fs2', 49)" onmouseover="showTip(event, 'fs2', 49)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 50)" onmouseover="showTip(event, 'fs2', 50)" class="fn">x</span> <span class="o">*</span> <span class="n">5</span> <span class="o">/</span> <span class="n">2</span>
+
+    <span class="c">// a internal function.</span>
+    <span class="c">// can only be called within this assembly.</span>
+    <span class="k">let</span> <span class="k">internal</span> <span onmouseout="hideTip(event, 'fs28', 51)" onmouseover="showTip(event, 'fs28', 51)" class="fn">operation2</span> <span onmouseout="hideTip(event, 'fs2', 52)" onmouseover="showTip(event, 'fs2', 52)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs2', 53)" onmouseover="showTip(event, 'fs2', 53)" class="fn">x</span> <span class="o">*</span> <span class="n">5</span>
+</code></pre>
+
+            <div class="fsdocs-tip" id="fs1">val add: x: int -&gt; y: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs2">val x: int</div>
+<div class="fsdocs-tip" id="fs3">val y: int</div>
+<div class="fsdocs-tip" id="fs4">val multiply: x: int -&gt; y: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs5">module Math
+
+from Modules</div>
+<div class="fsdocs-tip" id="fs6">Multiple items<br />type AutoOpenAttribute =
+  inherit Attribute
+  new: unit -&gt; AutoOpenAttribute + 1 overload
+  member Path: string<br /><em>&lt;summary&gt;Indicates a construct is automatically opened when brought into scope through
+ an assembly reference or then opening of the containing namespace or module.&lt;/summary&gt;<br />&lt;remarks&gt;When applied to an assembly, this attribute must be given a string
+ argument, and this indicates a valid module or namespace in that assembly. Source
+ code files compiled with a reference to this assembly are processed in an environment
+ where the given path is automatically opened.
+
+ When applied to a type or module within an assembly, then the attribute must not be given any arguments, and
+ the type or module is implicitly opened when its enclosing namespace or module is opened.
+ &lt;/remarks&gt;<br />&lt;category&gt;Attributes&lt;/category&gt;</em><br /><br />--------------------<br />new: unit -&gt; AutoOpenAttribute<br />new: path: string -&gt; AutoOpenAttribute</div>
+<div class="fsdocs-tip" id="fs7">val log: x: &#39;a -&gt; unit</div>
+<div class="fsdocs-tip" id="fs8">val x: &#39;a</div>
+<div class="fsdocs-tip" id="fs9">val printfn: format: Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><em>&lt;summary&gt;Print to &lt;c&gt;stdout&lt;/c&gt; using the given format, and add a newline.&lt;/summary&gt;<br />&lt;param name=&quot;format&quot;&gt;The formatter.&lt;/param&gt;<br />&lt;returns&gt;The formatted result.&lt;/returns&gt;<br />&lt;example&gt;See &lt;c&gt;Printf.printfn&lt;/c&gt; (link: &lt;see cref=&quot;M:Microsoft.FSharp.Core.PrintfModule.PrintFormatLine``1&quot; /&gt;) for examples.&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs10">Multiple items<br />type RequireQualifiedAccessAttribute =
+  inherit Attribute
+  new: unit -&gt; RequireQualifiedAccessAttribute<br /><em>&lt;summary&gt;This attribute is used to indicate that references to the elements of a module, record or union 
+ type require explicit qualified access.&lt;/summary&gt;<br />&lt;category&gt;Attributes&lt;/category&gt;</em><br /><br />--------------------<br />new: unit -&gt; RequireQualifiedAccessAttribute</div>
+<div class="fsdocs-tip" id="fs11">Multiple items<br />module List
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.list`1&quot; /&gt;.&lt;/summary&gt;<br />&lt;namespacedoc&gt;&lt;summary&gt;Operations for collections such as lists, arrays, sets, maps and sequences. See also 
+    &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/fsharp-collection-types&quot;&gt;F# Collection Types&lt;/a&gt; in the F# Language Guide.
+ &lt;/summary&gt;&lt;/namespacedoc&gt;</em><br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  | op_Nil
+  | op_ColonColon of Head: &#39;T * Tail: &#39;T list
+  interface IReadOnlyList&lt;&#39;T&gt;
+  interface IReadOnlyCollection&lt;&#39;T&gt;
+  interface IEnumerable
+  interface IEnumerable&lt;&#39;T&gt;
+  member GetReverseIndex: rank: int * offset: int -&gt; int
+  member GetSlice: startIndex: int option * endIndex: int option -&gt; &#39;T list
+  static member Cons: head: &#39;T * tail: &#39;T list -&gt; &#39;T list
+  member Head: &#39;T
+  member IsEmpty: bool
+  member Item: index: int -&gt; &#39;T with get
+  ...<br /><em>&lt;summary&gt;The type of immutable singly-linked lists.&lt;/summary&gt;<br />&lt;remarks&gt;Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1;2;3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+ &lt;/remarks&gt;<br />&lt;exclude /&gt;</em></div>
+<div class="fsdocs-tip" id="fs12">Multiple items<br />val double: list: int list -&gt; int list<br /><br />--------------------<br />[&lt;Struct&gt;]
+type double = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;. Identical to &lt;see cref=&quot;T:Microsoft.FSharp.Core.float&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type double&lt;&#39;Measure&gt; = float&lt;&#39;Measure&gt;<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure.
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs13">Multiple items<br />val list: int list<br /><br />--------------------<br />type &#39;T list = List&lt;&#39;T&gt;<br /><em>&lt;summary&gt;The type of immutable singly-linked lists. &lt;/summary&gt;<br />&lt;remarks&gt;See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ListModule&quot; /&gt; module for further operations related to lists.
+
+ Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1; 2; 3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/lists&quot;&gt;F# Language Guide - Lists&lt;/a&gt;.
+ &lt;/remarks&gt;</em></div>
+<div class="fsdocs-tip" id="fs14">val map: mapping: (&#39;T -&gt; &#39;U) -&gt; list: &#39;T list -&gt; &#39;U list<br /><em>&lt;summary&gt;Builds a new collection whose elements are the results of applying the given function
+ to each of the elements of the collection.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements from the input list.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The list of transformed elements.&lt;/returns&gt;<br />&lt;example id=&quot;map-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let inputs = [ &quot;a&quot;; &quot;bbb&quot;; &quot;cc&quot; ]
+
+ inputs |&amp;gt; List.map (fun x -&amp;gt; x.Length)
+ &lt;/code&gt;
+ Evaluates to &lt;c&gt;[ 1; 3; 2 ]&lt;/c&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs15">val elem: int</div>
+<div class="fsdocs-tip" id="fs16">Multiple items<br />module List
+
+from Modules<br /><br />--------------------<br />module List
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.list`1&quot; /&gt;.&lt;/summary&gt;<br />&lt;namespacedoc&gt;&lt;summary&gt;Operations for collections such as lists, arrays, sets, maps and sequences. See also 
+    &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/fsharp-collection-types&quot;&gt;F# Collection Types&lt;/a&gt; in the F# Language Guide.
+ &lt;/summary&gt;&lt;/namespacedoc&gt;</em><br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  | op_Nil
+  | op_ColonColon of Head: &#39;T * Tail: &#39;T list
+  interface IReadOnlyList&lt;&#39;T&gt;
+  interface IReadOnlyCollection&lt;&#39;T&gt;
+  interface IEnumerable
+  interface IEnumerable&lt;&#39;T&gt;
+  member GetReverseIndex: rank: int * offset: int -&gt; int
+  member GetSlice: startIndex: int option * endIndex: int option -&gt; &#39;T list
+  static member Cons: head: &#39;T * tail: &#39;T list -&gt; &#39;T list
+  member Head: &#39;T
+  member IsEmpty: bool
+  member Item: index: int -&gt; &#39;T with get
+  ...<br /><em>&lt;summary&gt;The type of immutable singly-linked lists.&lt;/summary&gt;<br />&lt;remarks&gt;Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1;2;3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+ &lt;/remarks&gt;<br />&lt;exclude /&gt;</em></div>
+<div class="fsdocs-tip" id="fs17">val filter: predicate: (&#39;T -&gt; bool) -&gt; list: &#39;T list -&gt; &#39;T list<br /><em>&lt;summary&gt;Returns a new collection containing only the elements of the collection
+ for which the given predicate returns &quot;true&quot;&lt;/summary&gt;<br />&lt;param name=&quot;predicate&quot;&gt;The function to test the input elements.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;A list containing only the elements that satisfy the predicate.&lt;/returns&gt;<br />&lt;example id=&quot;filter-1&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;
+ let input = [1, &quot;Luke&quot;; 2, &quot;Kirk&quot;; 3, &quot;Kenobi&quot;; 4, &quot;Spock&quot;]
+
+ let isComingFromStarTrek (x,_) = isEven x
+ 
+ input |&amp;gt; List.filter isComingFromStarTrek
+ &lt;/code&gt;
+ Evaluates to &lt;c&gt;[(2, &quot;Kirk&quot;); (4, &quot;Spock&quot;)]&lt;/c&gt;&lt;/example&gt;</em></div>
+<div class="fsdocs-tip" id="fs18">val double: list: int list -&gt; int list</div>
+<div class="fsdocs-tip" id="fs19">module AccessibilityModifiers
+
+from Modules</div>
+<div class="fsdocs-tip" id="fs20">type private Customer =
+  {
+    FirstName: string
+    LastName: string
+  }</div>
+<div class="fsdocs-tip" id="fs21">Customer.FirstName: string</div>
+<div class="fsdocs-tip" id="fs22">Multiple items<br />val string: value: &#39;T -&gt; string<br /><em>&lt;summary&gt;Converts the argument to a string using &lt;c&gt;ToString&lt;/c&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;For standard integer and floating point values the and any type that implements &lt;c&gt;IFormattable&lt;/c&gt;&lt;c&gt;ToString&lt;/c&gt; conversion uses &lt;c&gt;CultureInfo.InvariantCulture&lt;/c&gt;. &lt;/remarks&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted string.&lt;/returns&gt;<br />&lt;example id=&quot;string-example&quot;&gt;&lt;code lang=&quot;fsharp&quot;&gt;&lt;/code&gt;&lt;/example&gt;</em><br /><br />--------------------<br />type string = System.String<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.String&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs23">Customer.LastName: string</div>
+<div class="fsdocs-tip" id="fs24">type Person =
+  private {
+            FirstName: string
+            LastName: string
+          }</div>
+<div class="fsdocs-tip" id="fs25">Person.FirstName: string</div>
+<div class="fsdocs-tip" id="fs26">Person.LastName: string</div>
+<div class="fsdocs-tip" id="fs27">val private operation: x: int -&gt; int</div>
+<div class="fsdocs-tip" id="fs28">val internal operation2: x: int -&gt; int</div>
+
+        </div>
+
+        <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+        <script type="text/javascript">var fsdocs_search_baseurl = '/';</script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+        <script type="text/javascript" src="/content/fsdocs-search.js"></script>
+        <!-- END SEARCH BOX: this adds support for the search box -->
+    </div>
+</body>
+
+</html>
